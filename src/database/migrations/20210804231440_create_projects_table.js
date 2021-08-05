@@ -5,7 +5,7 @@ exports.up = knex => {
     table.text('title')
 
     table.integer('user_id')
-      .references('user.id')
+      .references('users.id')
       .notNullable()
       .onDelete('CASCADE')
 
