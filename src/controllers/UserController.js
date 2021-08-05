@@ -1,9 +1,22 @@
 const knex = require('../database')
 
 module.exports = {
-  async index(req, res) {
+  async getAll(req, res) {
     const results = await knex('users')
     return res.json(results)
+  },
+
+  async findOne(req, res, next) {
+    try {
+      const id = req.params.id
+
+      const results = await knex('users')
+        .where({ id })
+
+      return res.json(results)
+    } catch (error) {
+      next(error)
+    }
   },
 
   async create(req, res, next) {
