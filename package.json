@@ -5,6 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "nodemon src/server.js",
+    "recreate-db": "npx knex migrate:rollback --all && npx knex migrate:latest",
     "seed-db": "npx knex seed:run",
     "test": "npx jest"
   },
